@@ -1,5 +1,5 @@
 //Fill index
-$.get(`/documents/.directory`, function (data) {
+$.get(`/documents/index.directory`, function (data) {
     for (let line of data.split("\n")) {
         if (line === "" || line.startsWith("#")) continue;
         let keyvalue = line.split(":");
