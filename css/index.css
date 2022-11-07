@@ -1,0 +1,49 @@
+body {
+    background-color: #F3F7F9;
+}
+
+.nav-sublink {
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+#sidebar {
+    top: 0;
+    left: -240px;
+    transition: 0.3s;
+}
+#sidebar:hover {
+    left: 0;
+}
+.sidebarMargin {
+    margin-left: 40px;
+}
+
+/* 
+* Markdown styling 
+*/
+#content {
+    padding-bottom: 50px;
+}
+#content h2 {
+    margin-top: 40px !important;
+}
+#content h3 {
+    margin-top: 30px !important;
+}
+/* tables */
+#content table tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+#content table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+#content td {
+    word-wrap: break-word;
+    vertical-align: top;
+}
+#content th {
+    word-wrap: break-word;
+    vertical-align: top;
+    background-color: #efefef;
+}

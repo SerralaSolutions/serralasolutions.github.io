@@ -1,0 +1,8 @@
+# Which files to show in the index
+# Lines starting with # are comments
+# Format:
+# <Filename> : <name shown in index>
+# (And order does matter)
+authentication:Authentication
+billSync:Creating a Bill
+glossary:Glossary & Statuses
