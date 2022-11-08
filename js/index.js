@@ -32,6 +32,7 @@ function getDocument(name, afterListElement) {
         converter.setFlavor('github');
         let html = converter.makeHtml(data);
         $("#content").html(html);
+        hljs.highlightAll();
         //Remove headers with nav-sublink from the index
         $("#documentIndex").children().each(function () {
             if ($(this).children().first().hasClass("nav-sublink")) {

@@ -1,8 +1,21 @@
 # Which files to show in the index
 # Lines starting with # are comments
 # Format:
-# <Filename> : <name shown in index>
+# <Filename>.md : <name shown in index>
 # (And order does matter)
 authentication:Authentication
 billSync:Creating a Bill
+mandate:Creating a Mandate
+sendingMessages:Sending messages
+paymentStatus:Payment status
+bounces:Bounces
+webhooks:Receiving Webhooks
+events:Events
+amountSchemes:Amount Schemes
+search:Search
+redirecting:Redirecting to payment provider
+redirectingBack:Redirecting after payment
+customUrls:Using your own URL
+versionMigration:Version migration
 glossary:Glossary & Statuses
+errors:Errors
