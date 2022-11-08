@@ -33,6 +33,8 @@ function getDocument(name, afterListElement) {
         let html = converter.makeHtml(data);
         $("#content").html(html);
         hljs.highlightAll();
+        //Scroll to the top of the document
+        $(window).scrollTop(0);
         //Remove headers with nav-sublink from the index
         $("#documentIndex").children().each(function () {
             if ($(this).children().first().hasClass("nav-sublink")) {

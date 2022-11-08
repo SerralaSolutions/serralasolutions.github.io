@@ -174,7 +174,7 @@ Adding the CommunicationPlanId will make it so that any other communication adde
 ### Default Communication Plan on AETemplates
 Besides adding the Communication Plan in the call you can also define one as default in the AE Template (Templates > AE Templates).
 
-<img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='images/commplan.png'/>
+<img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='documents/images/commplan.png'/>
 
 Now, when creating the record, make sure to use the `AETemplateID` that the Communication Plan was linked to. Don't add any other communication to the call (as this will overrule the default Communication Plan).
 

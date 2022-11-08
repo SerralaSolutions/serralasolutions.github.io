@@ -90,7 +90,7 @@ The endpoint for these webhooks can be set in the application under Account > Se
 The checkboxes select which webhooks will be sent.
 
 
-<img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='images/webhookSettings.png'/>
+<img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='documents/images/webhookSettings.png'/>
 
 The endpoint needs to be HTTPS and publicly accessible.
 

@@ -9,7 +9,7 @@ Log into the application and select Settings under the Account menu-tab (your ac
 
 At the REST API Keys Settings, enter a username and let the app generate the keys
 
-<img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='images/authentication.png'/>
+<img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='documents/images/authentication.png'/>
 
 ## Rotating the API Keys
 
