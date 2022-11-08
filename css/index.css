@@ -30,9 +30,35 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-#index::-webkit-scrollbar {
-    display:none;
+
+/* Scrollbar modications */
+:root {
+    --scroll-bar-color: #c5c5c5;
+    --scroll-bar-bg-color: #f6f6f6;
 }
+* {
+    scrollbar-width: thin;
+    scrollbar-height: thin;
+    scrollbar-color: var(--scroll-bar-color) var(--scroll-bar-bg-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-bar-color);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+
 #documentIndex {
     white-space: nowrap;
     overflow: hidden;
