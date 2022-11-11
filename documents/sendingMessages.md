@@ -41,13 +41,13 @@ An example that might be posted to `/v2/Bill/` would be:
 
 Fields for the communication object:
 
-| Field                                      | Type                                | Explanation       |
-|:-------------------------------------------|:------------------------------------|:------------------|
-| **Channel** <br/> `Required`      |  `Email`, `Text` or `PDF`        |The channel for which to send through; Email or Text. Can also be PDF to create pdf's to be shown on the transaction page.|
-| **Template**        |  String           | The ID of the template to send with. If not supplied will fall back to the default emailtemplate or [Communication Plan](#using-the-communication-plan) as defined in the AETemplate  |
-| **ScheduledDate**                               |  ISO DateTime format                             | The moment for when the mailing is scheduled. If not set, it will send immediately  |
-| **PaymentStatus**                               |  String (enumeration)             | Filter option to send the message or not based on the Payment Status. See [Glossary & Statuses](#bill-communication-paymentstatus) for info.|
-| **MessageStatus**                               |   String (enumeration)                | Filter option to send the message or not based on the Message Status of previous messages for this mailing. See [Glossary & Statuses](#bill-amp-mandate-communication-message-status) for info. |
+| Field                                      | Type                                | Explanation                                                                                                                                                                                                         |
+|:-------------------------------------------|:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Channel** <br/> `Required`      |  `Email`, `Text` or `PDF`        | The channel for which to send through; Email or Text. Can also be PDF to create pdf's to be shown on the transaction page.                                                                                          |
+| **Template**        |  String           | The ID of the template to send with. If not supplied will fall back to the default emailtemplate or [Communication Plan](#using-the-communication-plan) as defined in the AETemplate                                |
+| **ScheduledDate**                               |  ISO DateTime format                             | The moment for when the mailing is scheduled. If not set, it will send immediately                                                                                                                                  |
+| **PaymentStatus**                               |  String (enumeration)             | Filter option to send the message or not based on the Payment Status. See [Glossary & Statuses](#bill-communication-paymentstatus) for info.                                                                        |
+| **MessageStatus**                               |   String (enumeration)                | Filter option to send the message or not based on the Message Status of previous messages for this mailing. See [Glossary & Statuses](?document=glossary&h=bill-amp-mandate-communication-message-status) for info. |
 
 Besides adding it within the `POST` for the Bill it is also possible to do separate calls to create or change the communications:
 
