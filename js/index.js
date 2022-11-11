@@ -50,6 +50,16 @@ function getDocument(name, afterListElement) {
         $("#content").html(html);
         //Highlight code
         hljs.highlightAll();
+        //Add copy link icons to the headers
+        $("#content").children().each(function () {
+            if ($(this).is("h1") || $(this).is("h2") || $(this).is("h3")) {
+                $(this).append(`
+                    <a href="javascript:void(0);" class="copyLink" onclick="copyLink(this)">
+                        <img src="/images/link-solid.svg" alt="Copy link" class="copyLinkIcon" height="16" width="16">
+                    </a>
+                `);
+            }
+        });
         //Scroll to the top of the document
         $(window).scrollTop(0);
         //Remove headers with nav-sublink from the index
@@ -78,8 +88,9 @@ function getDocument(name, afterListElement) {
         let header = url.searchParams.get("header");
         if (header !== null) {
             console.log('header', header);
-            $(`#${header}`).get(0).scrollIntoView();
-            // $(window).scrollTop($(`#${header}`).offset().top);
+            if ($(`#${header}`).get(0) != null) {
+                $(`#${header}`).get(0).scrollIntoView();
+            }
         }
     });
 }
@@ -102,4 +113,13 @@ window.onpopstate = async (event) => {
         name = "introduction";
     }
     getDocument(name);
+}
+
+function copyLink(element) {
+    let url = new URL(window.location.href);
+    let header = url.searchParams.get("header");
+    if (header !== null) {
+        url.searchParams.delete("header");
+    }
+    navigator.clipboard.writeText(url.href + "&header=" + $(element).parent().attr("id"));
 }

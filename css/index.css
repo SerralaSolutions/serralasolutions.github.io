@@ -80,6 +80,22 @@ body {
     text-decoration: underline !important;
 }
 
+.copyLinkIcon {
+    opacity: 0;
+}
+h1:hover .copyLinkIcon {
+    opacity: 1;
+    animation: fadein 0.5s;
+}
+h2:hover .copyLinkIcon {
+    opacity: 1;
+    animation: fadein 0.5s;
+}
+h3:hover .copyLinkIcon {
+    opacity: 1;
+    animation: fadein 0.5s;
+}
+
 /* 
 * Markdown styling 
 */
