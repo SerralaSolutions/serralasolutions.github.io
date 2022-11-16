@@ -144,8 +144,12 @@ function search(query) {
             for (let line of data.split("\n")) {
                 if (line === "" || line.startsWith("#")) continue;
                 let keyvalue = line.split(":");
-                $.get(`/documents/${keyvalue[0]}.md`, function (data) {
-                    documentCache[keyvalue[0]] = data;
+                $.ajax({
+                    url: `/documents/${keyvalue[0]}.md`,
+                    success: function (data) {
+                        documentCache[keyvalue[0]] = data;
+                    },
+                    cache: true
                 });
             }
             console.log('documentCache', documentCache);
