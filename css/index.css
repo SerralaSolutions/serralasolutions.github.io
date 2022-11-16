@@ -96,6 +96,10 @@ h3:hover .copyLinkIcon {
     animation: fadein 0.5s;
 }
 
+.search-item {
+    max-width: 235px;
+    overflow: hidden;
+}
 .search-item:hover {
     background-color: #ED1C60;
     color: white;

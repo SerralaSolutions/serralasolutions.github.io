@@ -144,6 +144,7 @@ function search(query) {
             for (let line of data.split("\n")) {
                 if (line === "" || line.startsWith("#")) continue;
                 let keyvalue = line.split(":");
+                //TODO: Consider not spamming the server with requests and combining them into one document using a workflow or something
                 $.ajax({
                     url: `/documents/${keyvalue[0]}.md`,
                     success: function (data) {
@@ -152,7 +153,6 @@ function search(query) {
                     cache: true
                 });
             }
-            console.log('documentCache', documentCache);
         });
     }
     //Search all documents in the cache if they contain the query, store the key and some context
@@ -168,15 +168,15 @@ function search(query) {
             });
         }
     }
-    console.log('results', results);
     //Append the results to the search results
     for (let result of results) {
+        let title = documentCache[result.key].split("\n")[0].substring(2);
         $("#searchResults").append(`
         <a href="?document=${result.key}" class="list-group-item list-group-item-action search-item">
                         <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-1">${result.key}</h6>
+                            <h6 class="mb-1">${title}</h6>
                         </div>
-                        <small class="mb-1">${result.context}</small>
+                        <small class="mb-1">...${result.context.replaceAll("#", "")}...</small>
                     </a>
         `);
     }
