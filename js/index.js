@@ -129,7 +129,51 @@ function copyLink(element) {
 
 //Search
 let documentCache = {};
-let loading = false;
+let loadingCache = false;
 function search(query) {
-    
+    console.log('search', query);
+    $("#searchResults").html("");
+    if (query === "") {
+        $("#searchResults").html("");
+        return;
+    }
+    //If the cache is still empty, load all documents
+    if (Object.keys(documentCache).length === 0 && !loadingCache) {
+        loadingCache = true;
+        $.get(`/documents/index.directory`, function (data) {
+            for (let line of data.split("\n")) {
+                if (line === "" || line.startsWith("#")) continue;
+                let keyvalue = line.split(":");
+                $.get(`/documents/${keyvalue[0]}.md`, function (data) {
+                    documentCache[keyvalue[0]] = data;
+                });
+            }
+            console.log('documentCache', documentCache);
+        });
+    }
+    //Search all documents in the cache if they contain the query, store the key and some context
+    let results = [];
+    for (let key in documentCache) {
+        let document = documentCache[key];
+        let index = document.toLowerCase().indexOf(query.toLowerCase());
+        if (index !== -1) {
+            let context = document.substring(index - 50, index + 50);
+            results.push({
+                key: key,
+                context: context
+            });
+        }
+    }
+    console.log('results', results);
+    //Append the results to the search results
+    for (let result of results) {
+        $("#searchResults").append(`
+        <a href="?document=${result.key}" class="list-group-item list-group-item-action search-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">${result.key}</h6>
+                        </div>
+                        <small class="mb-1">${result.context}</small>
+                    </a>
+        `);
+    }
 }

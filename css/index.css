@@ -96,6 +96,11 @@ h3:hover .copyLinkIcon {
     animation: fadein 0.5s;
 }
 
+.search-item:hover {
+    background-color: #ED1C60;
+    color: white;
+}
+
 /* 
 * Markdown styling 
 */
