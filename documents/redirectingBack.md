@@ -16,8 +16,8 @@ To set this up. In the account, add a Result Banner, under the Templates menu. Y
   "Amount": 1299,
   "ExpiryDate": "2020-04-01T09:00:00Z",
   "Extras":{
-  	"ReturnBannerOpenURL":"http://www.example.com",
-  	"ReturnBannerPaidURL":"http://www.example.com"
+  	"ReturnBannerOpenURL":"https://www.example.com",
+  	"ReturnBannerPaidURL":"https://www.example.com"
   }
 }
 ```
@@ -26,13 +26,13 @@ If you want each record to have unique redirect URL's, you can add this through 
 
 ### Custom redirect through url parameters
 For some use cases, a record will have different ways of being accessed (through email, portal and app) and each will have a different return-url. For this scenario, you can use pass the return-url's in query-parameters in the url. The parameters are the same as for the scenario above. The url's will have to be encoded. This will result in a url like this:
-```
+```url
 https://transaction.accepteasy.com/Landing?id=7f5f945f-1965-4acc-b4cf-8a36510c0ec6&detail=true&ReturnBannerOpenURL=http%3A%2F%2Fwww.example.com&ReturnBannerPaidURL=http%3A%2F%2Fwww.example.com
 ```
 As a security measure, the url will be checked against a regular expression which will have to be set in the application under Settings (Dynamic Redirect - URL Validation Expression). If no regular expression is set or the url doesn't match the regular expression, the user won't be redirected to the dynamic url. (if a url is set in the record or template, that redirect will apply)
 
 Let's say your redirect will go to either https://www.example.com/id/1234567890 or /appurl/example/com/id?1234567890 the regex will look like this:
-```
+```regexp
 ^(https:\/\/www.example.com\/id\/[0-9]{10})|(\/appurl\/example\/com\/id\?[0-9]{10})$
 ```
 

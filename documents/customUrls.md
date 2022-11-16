@@ -39,5 +39,5 @@ It is also possible to customize the ShortURL for use in Text messages.
 }
 ```
 
-Once set up and linked to the AETemplate the calls to our REST API will be the same as described in [Creating a Bill](#creating-a-bill). 
+Once set up and linked to the AETemplate the calls to our REST API will be the same as described in [Creating a Bill](?document=billSync). 
 Be sure to use the `AETemplateID` to which the custom URL is linked. The respone will now contain the Custom URL (see example). In all communication sent by us we will also use the custom URL.

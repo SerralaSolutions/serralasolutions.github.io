@@ -5,7 +5,7 @@
 In some cases, it might be useful to have a user skip our transaction page and go straight to the payment provider. This can be achieved by passing a couple of arguments to the url of our landing page.
 ### Bills
 Here is an example of such a redirect URL:
-```
+```url
 https://transaction.acceptemail.com/Landing?id=7f5f945f-1965-4acc-b4cf-8a36510c0ec6&detail=true&paymentMethod=c7a8c460-e5e1-404e-a8c4-7fe5b27b48f2&subPaymentMethod=INGBNL2A&redirect=true
 ```
 `&redirect=true` tells the page to redirect the user to the payment provider.

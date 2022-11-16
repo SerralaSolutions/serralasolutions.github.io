@@ -34,6 +34,9 @@ $.get(`/documents/index.directory`, function (data) {
         });
         //Add highlighting to the current document
         $(`#d_${docu}`).addClass("active");
+    } else {
+        //Highlight introduction if no document is specified
+        $(`#d_introduction`).addClass("active");
     }
 });
 
@@ -122,4 +125,11 @@ function copyLink(element) {
         url.searchParams.delete("header");
     }
     navigator.clipboard.writeText(url.href + "&header=" + $(element).parent().attr("id"));
+}
+
+//Search
+let documentCache = {};
+let loading = false;
+function search(query) {
+    
 }

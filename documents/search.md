@@ -42,4 +42,4 @@ Searching for bills previously sent to a client can be done by using the payment
 `https://api.acceptemail.com/v2/Search/Bill?paymentReference=1111222233334444`
 
 
-As you can see, the response is comprised of the search results in the Bills array, and some SearchMetaData. If the number of results exceeds the "count", and several pages of results exist, a query for the next page will be included in the SearchMetadata.
+As you can see, the response comprises the search results in the Bills array, and some SearchMetaData. If the number of results exceeds the "count", and several pages of results exist, a query for the next page will be included in the SearchMetadata.

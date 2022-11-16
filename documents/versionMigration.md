@@ -2,7 +2,7 @@
 
 ## Migration from v1 to v2
 
-The main difference between v1 and v2 of our REST API are that you can now opt for [synchronous](#synchronous-post) sending instead of [asynchronous](#asynchronous-post) sending and additional data is now set as [RecordData](#adding-data-to-be-used-in-messages) using a standard JSON object instead of as EmailData using key-value pairs. Below is a full list of changes and steps to be taken to migrate.
+The main difference between v1 and v2 of our REST API are that you can now opt for [synchronous](?document=billSync&header=synchronous-post) sending instead of [asynchronous](?document=billAsync&header=asynchronous-post) sending and additional data is now set as [RecordData](?document=versionMigration&header=emaildata-to-recorddata) using a standard JSON object instead of as EmailData using key-value pairs. Below is a full list of changes and steps to be taken to migrate.
 
 ### Bulk sending
 
