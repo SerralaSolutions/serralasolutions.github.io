@@ -90,7 +90,6 @@ function getDocument(name, afterListElement) {
         let url = new URL(window.location.href);
         let header = url.searchParams.get("header");
         if (header !== null) {
-            console.log('header', header);
             if ($(`#${header}`).get(0) != null) {
                 $(`#${header}`).get(0).scrollIntoView();
             }
@@ -131,7 +130,6 @@ function copyLink(element) {
 let documentCache = {};
 let loadingCache = false;
 function search(query) {
-    console.log('search', query);
     $("#searchResults").html("");
     if (query === "") {
         $("#searchResults").html("");
@@ -155,13 +153,15 @@ function search(query) {
             }
         });
     }
-    //Search all documents in the cache if they contain the query, store the key and some context
+    //Search all documents in the cache if they contain the query, store the key and some context. Highlight the query in the context
     let results = [];
     for (let key in documentCache) {
         let document = documentCache[key];
         let index = document.toLowerCase().indexOf(query.toLowerCase());
         if (index !== -1) {
             let context = document.substring(index - 50, index + 50);
+            let regex = new RegExp(query, "ig");
+            context = context.replace(regex, `<strong>${query}</strong>`);
             results.push({
                 key: key,
                 context: context
@@ -171,13 +171,40 @@ function search(query) {
     //Append the results to the search results
     for (let result of results) {
         let title = documentCache[result.key].split("\n")[0].substring(2);
+        //Find last h1 h2 or h3 above the query
+        let header = "";
+        let lines = documentCache[result.key].split("\n");
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i].startsWith("#")) {
+                header = lines[i].substring(2).replaceAll("#", "").trim().replaceAll(" ", "-").toLowerCase();
+            }
+            if (lines[i].toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+                break;
+            }
+        }
+        //Add results to display
         $("#searchResults").append(`
-        <a href="?document=${result.key}" class="list-group-item list-group-item-action search-item">
+        <a href="javascript:void(0)" class="list-group-item list-group-item-action search-item" onclick="gotoPage('${result.key}', '${header}')">
                         <div class="d-flex w-100 justify-content-between">
                             <h6 class="mb-1">${title}</h6>
                         </div>
                         <small class="mb-1">...${result.context.replaceAll("#", "")}...</small>
                     </a>
         `);
+    }
+}
+
+function gotoPage(document, header) {
+    //On click, remove all highlighting, highlight new page and retrieve the document to show
+    $("#documentIndex").children().each(function() {
+        $(this).children().first().removeClass("active");
+    });
+    $("#d_" + document).children().first().addClass("active");
+    getDocument(document);
+    //Set the document in the url parameters
+    if (header !== undefined) {
+        window.history.pushState("", "", `?document=${document}&header=${header}`);
+    } else {
+        window.history.pushState("", "", `?document=${document}`);
     }
 }
