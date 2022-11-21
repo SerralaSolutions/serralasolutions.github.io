@@ -59,8 +59,8 @@ Both MaximumAmount and MinimumAmount are optional fields to allow for amounts st
 ```json
 {
     "Amount": 2000,
-    "MultiSelectList": {
-        "List": [
+    "AmountScheme": {
+        "MultiSelectList": [
             {
                 "Label": "string",
                 "Amount": 100,
