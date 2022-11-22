@@ -15,6 +15,7 @@ bounces:Bounces
 webhooks:Receiving Webhooks
 events:Events
 amountSchemes:Amount Schemes
+partialPay:Partial Payments
 search:Search
 redirecting:Redirecting to payment provider
 redirectingBack:Redirecting after payment
