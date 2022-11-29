@@ -31,7 +31,9 @@ The content of the call will be exactly the same as the [synchronous](?document=
 }
 ```
 
-The response of this call will only contain the ATID. The record will then be put in a queue which will then be processed. Normally processing takes a few seconds.
+The response of this call will only contain the ATID. The record will then be put in a queue which will then be processed. Normally processing takes a few seconds. On busier days, this can increase to a few minutes.
+
+When planning a mailing scheduled soon after the call is made, we advise to make sure this is at least a 30 minutes in the future, as the processing can (in busy timeframes) increase to a few minutes it might cause problems when scheduling the mailing.
 
 
 
