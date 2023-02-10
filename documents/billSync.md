@@ -1,6 +1,5 @@
 # Creating a Bill
 
-## Synchronous POST
 To create a single payment link for an invoice, only minimal information needs to be sent to our API. It is easiest to use the synchronous POST version of `/v2/Bill` , so that you know the transaction page is available the same instant you get the response.
 
 > Request
