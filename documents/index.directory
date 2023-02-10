@@ -4,8 +4,8 @@
 # <Filename>.md : <name shown in index>
 # (And order does matter)
 authentication:Authentication
-billSync:Creating a Bill
-billAsync:Asynchronous POST
+billSync:Creating a bill
+billAsync:Asynchronous creation
 billBulk:Bulk POST
 billPatch:Bill Patch
 mandate:Creating a Mandate
