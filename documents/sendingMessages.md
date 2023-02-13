@@ -1,11 +1,24 @@
-# Sending messages
+# Sending a bill or mandate
 When creating the records, it is possible to plan all future communications based on certain conditions. So you can choose to send the transaction through email right away, again through text a week later if it hasn't been paid yet, and finally a few days before expiry.
 
-
 ## Sending a record
+Add an array of communications to your bill body to send it right away. The communication array can contain multiple communications.
+##### Optional for: `POST /v2/Bill` & `POST /v2/Mandate`
+##### Request body:
+
+| Field                                      | Type                                | Explanation                                                                                                                                                                                                              |
+|:-------------------------------------------|:------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Channel** <br/> `Required`      |  `Email`, `Text` or `PDF`        | The channel for which to send through; Email or Text. Can also be PDF to create pdf's to be shown on the transaction page.                                                                                               |
+| **Template**        |  String           | The ID of the template to send with. If not supplied will fall back to the default emailtemplate or [Communication Plan](?document=sendingMessages&header=using-the-communication-plan) as defined in the AETemplate                                     |
+| **ScheduledDate**                               |  ISO DateTime format                             | The moment for when the mailing is scheduled. If not set, it will send immediately                                                                                                                                       |
+| **PaymentStatus**                               |  String (enumeration)             | Filter option to send the message or not based on the Payment Status. See [Glossary & Statuses](?document=glossary&header=communication-status) for info.                                                                             |
+| **MessageStatus**                               |   String (enumeration)                | Filter option to send the message or not based on the Message Status of previous messages for this mailing. See [Glossary & Statuses](?document=glossary&header=bill--mandate-communication-message-status) for info. |
+
 An example that might be posted to `/v2/Bill/` would be:
 
-Request
+<details>
+<summary>Example request body</summary>
+
 ```json
 {
   "PaymentReference": "123456",
@@ -19,35 +32,25 @@ Request
     {
       "Channel": "Email",
       "Template": "initialPaymentRequest",
-      "ScheduledDate": "2023-02-05T10:11:22Z",
+      "ScheduledDate": "2023-02-05T10:11:22Z"
     },
     {
       "Channel": "Text",
       "PaymentStatus": "Open",
       "Template": "preminderText",
-      "ScheduledDate": "2023-02-12T15:11:22Z",
+      "ScheduledDate": "2023-02-12T15:11:22Z"
     },
     {
       "Channel": "Email",
       "PaymentStatus": "Open",
       "Template": "finalPreminder",
-      "ScheduledDate": "2023-02-25T10:11:22Z",
-    },
+      "ScheduledDate": "2023-02-25T10:11:22Z"
+    }
   ]
 }
 ```
-
-> Will send an Email and Text message and another Email before expiry
-
-Fields for the communication object:
-
-| Field                                      | Type                                | Explanation                                                                                                                                                                                                              |
-|:-------------------------------------------|:------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Channel** <br/> `Required`      |  `Email`, `Text` or `PDF`        | The channel for which to send through; Email or Text. Can also be PDF to create pdf's to be shown on the transaction page.                                                                                               |
-| **Template**        |  String           | The ID of the template to send with. If not supplied will fall back to the default emailtemplate or [Communication Plan](?document=sendingMessages&header=using-the-communication-plan) as defined in the AETemplate                                     |
-| **ScheduledDate**                               |  ISO DateTime format                             | The moment for when the mailing is scheduled. If not set, it will send immediately                                                                                                                                       |
-| **PaymentStatus**                               |  String (enumeration)             | Filter option to send the message or not based on the Payment Status. See [Glossary & Statuses](?document=glossary&header=communication-status) for info.                                                                             |
-| **MessageStatus**                               |   String (enumeration)                | Filter option to send the message or not based on the Message Status of previous messages for this mailing. See [Glossary & Statuses](?document=glossary&header=bill--mandate-communication-message-status) for info. |
+This will send an email and text message and another Email before expiry
+</details>
 
 Besides adding it within the `POST` for the Bill it is also possible to do separate calls to create or change the communications:
 
@@ -70,7 +73,15 @@ For Mandates, the calls are similar:
 `PATCH /v2/MandateCommunication/[communicationId]`
 
 ## Adding data to be used in messages
-Request
+When sending bills through email, it can be useful to add some additional information to your calls, so that this data can be used in the email- or text templates. For instance, it's very common to provide a recipient salutation and address lines.
+
+For the RecordData you can define the variables yourself. As long as they don't share the name with an existing variable in the object (you can't add PaymentReference in the RecordData).
+
+##### Optional for: `POST /v2/Bill` & `POST /v2/Mandate`
+##### Request body:
+<details>
+<summary>Example request body</summary>
+
 ```json
 {
   "PaymentReference": "123456",
@@ -96,15 +107,22 @@ Request
   }
 }
 ```
-
-When sending bills through email, it can be useful to add some additional information to your calls, so that this data can be used in the email- or text templates. For instance, it's very common to provide a recipient salutation and address lines.
-
-For the RecordData you can define the variables yourself. As long as they don't share the name with an existing variable in the object (you can't add PaymentReference in the RecordData.)
+</details>
 
 
 ## Adding attachments to emails
+If you want to add an invoice or details for a certain payment to the email you can add a PDF-attachment. See the Attachment object in the code example below.
 
-Request 
+The Attachment-filename in this call is what the file will be named (including extension) when attaching the file.
+The binary needs to be a base64-encoded string of the PDF contents.
+
+When a record is created with an attachment, all emails sent out for this record will have the attachment added to it.
+##### Optional for: `POST /v2/Bill` & `POST /v2/Mandate`
+##### Request body:
+
+<details>
+<summary>Example request body</summary>
+
 ```json
 {
   "PaymentReference": "123456",
@@ -128,17 +146,21 @@ Request
   }
 }
 ```
-
-If you want to add an invoice or details for a certain payment to the email you can add a PDF-attachment. See the Attachment object in the code example below.
-
-The Attachment-filename in this call is what the file will be named (including extension) when attaching the file.
-The binary needs to be a base64-encoded string of the PDF contents.
-
-When a record is created with an attachment, all emails sent out for this record will have the attachment added to it.
-
+</details>
 
 ## Using the Communication Plan
-Request
+You can create Communication Plans in the application. These enable you to set up a default plan to use each time.
+In this plan you can set different moments of messaging based on time of creation (e.g. 1 hour after creation of record), time of expiration (e.g. 3 days before expiration) and events (e.g. immediately after payment).
+
+See Templates > Communication Plans in the application for setting up Communication Plans.
+
+Once created, it can be called by adding the `CommunicationPlanId` to the call (see example).
+
+##### Optional for: `POST /v2/Bill` & `POST /v2/Mandate`
+##### Request body:
+<details>
+<summary>Example request body</summary>
+
 ```json
 {
   "PaymentReference": "123456",
@@ -158,18 +180,9 @@ Request
   }
 }
 ```
+</details>
 
-
-You can create Communication Plans in the application. These enable you to set up a default plan to use each time.
-In this plan you can set different moments of messaging based on time of creation (e.g. 1 hour after creation of record), time of expiration (e.g. 3 days before expiration) and events (e.g. immediately after payment).
-
-See Templates > Communication Plans in the application for setting up Communication Plans.
-
-Once created, it can be called by adding the `CommunicationPlanId` to the call (see example)
-
-<aside class="notice">
-Adding the CommunicationPlanId will make it so that any other communication added to the call will result in an error.
-</aside>
+> Adding the CommunicationPlanId will make it so that any other communication added to the call will result in an error.
 
 ### Default Communication Plan on AETemplates
 Besides adding the Communication Plan in the call you can also define one as default in the AE Template (Templates > AE Templates).

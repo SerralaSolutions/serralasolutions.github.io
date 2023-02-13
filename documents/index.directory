@@ -6,10 +6,10 @@
 authentication:Authentication
 billSync:Creating a bill
 billAsync:Asynchronous creation
-billBulk:Bulk POST
-billPatch:Bill Patch
-mandate:Creating a Mandate
-sendingMessages:Sending messages
+billBulk:Bulk creation
+billPatch:Updating a bill
+mandate:Creating a mandate
+sendingMessages:Sending a bill
 paymentStatus:Payment status
 bounces:Bounces
 webhooks:Receiving Webhooks

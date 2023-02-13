@@ -26,7 +26,6 @@ To create a single payment link for an invoice, only minimal information needs t
 }
 ```
 This will create a bill for a payment of &euro; 12,95 that expires on April 2nd 2023.
-
 </details>
 
 ##### Response body:

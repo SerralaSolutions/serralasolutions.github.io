@@ -18,7 +18,6 @@ The content of the call will be exactly the same as the [synchronous](?document=
 }
 ```
 This will create a bill for a payment of &euro; 12,95 that expires on April 2nd 2023.
-
 </details>
 
 ##### Response body
@@ -31,7 +30,6 @@ The response of this call will only contain the ATID. The record will then be pu
   "ATID": "00000000-0000-0000-0000-000000000000",
 }
 ```
-
 </details>
 
 > When planning a mailing scheduled soon after the call is made, we advise to make sure this is at least a 30 minutes in the future, as the processing can (in busy timeframes) increase to a few minutes it might cause problems when scheduling the mailing.
@@ -68,9 +66,7 @@ There are 3 possible statuses:
 'ERROR' object only available on status 'CreationFailed'.
 
 'Location' string only available on status 'CreationSucceeded'
-
-
 </details>
 
-### Webhooks
+## Webhooks
 It is also possible to receive a webhook when a record is created or caused an error. See [webhooks](?document=webhooks&header=receiving-webhooks) for more information.

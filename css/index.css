@@ -183,3 +183,7 @@ h3:hover .copyLinkIcon {
     padding: 10px;
     border-left: 3px solid #30B3E3;
 }
+/* links */
+#content a {
+    color: #ED1C60;
+}
