@@ -11,7 +11,7 @@ However, an endpoint can always temporarily become unavailable, so we advise a f
 3. **Use the Search/Payment API call**
    Using the Search/Payment API call, for instance every hour, you will receive all payments made using a single API call. This would be our advised  way of making sure all payments are known in your systems. We would also suggest having some overlap in the time frame, if you are looking at payments of the last hour, to account for transactions that might have been outstanding during the turn of the hours.
    An example of what that might look like:
-```url
+```
 https://api.acceptemail.com/v2/Search/Payment?paymentDateFrom=2019-01-15T09%3A00%3A00Z&paymentDateTo=2019-01-16T09%3A00%3A00Z&type=Bills
 ```
 More information about the available attributes and the exact response can be found in the [SwaggerDocs](https://api.acceptemail.com/index.html).
