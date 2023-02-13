@@ -7,7 +7,7 @@ It can also be used to update the status of the record.
 
 ### HTTP Request
 
-> Request
+Request
 
 ```json
 {

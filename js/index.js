@@ -117,6 +117,7 @@ window.onpopstate = async (event) => {
     getDocument(name);
 }
 
+//Copy link to clipboard when clicking on a header
 function copyLink(element) {
     let url = new URL(window.location.href);
     let header = url.searchParams.get("header");

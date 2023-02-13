@@ -5,7 +5,7 @@ When creating the records, it is possible to plan all future communications base
 ## Sending a record
 An example that might be posted to `/v2/Bill/` would be:
 
-> Request
+Request
 ```json
 {
   "PaymentReference": "123456",
@@ -70,7 +70,7 @@ For Mandates, the calls are similar:
 `PATCH /v2/MandateCommunication/[communicationId]`
 
 ## Adding data to be used in messages
-> Request
+Request
 ```json
 {
   "PaymentReference": "123456",
@@ -104,7 +104,7 @@ For the RecordData you can define the variables yourself. As long as they don't 
 
 ## Adding attachments to emails
 
-> Request 
+Request 
 ```json
 {
   "PaymentReference": "123456",
@@ -138,7 +138,7 @@ When a record is created with an attachment, all emails sent out for this record
 
 
 ## Using the Communication Plan
-> Request
+Request
 ```json
 {
   "PaymentReference": "123456",

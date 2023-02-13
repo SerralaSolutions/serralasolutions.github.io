@@ -8,7 +8,7 @@ A mandate is a special type of bill in which the recipient pays a small fee or f
 
 `POST /v2/Mandate`
 
-> Request
+Request
 ```json
 {
   "PaymentReference": "123456",

@@ -137,6 +137,9 @@ h3:hover .copyLinkIcon {
     margin-top: 30px !important;
 }
 /* tables */
+#content table {
+    margin-bottom: 16px;
+}
 #content table tr:nth-child(odd) {
     background-color: #f8f8f8;
 }
@@ -146,6 +149,7 @@ h3:hover .copyLinkIcon {
 #content td {
     word-wrap: break-word;
     vertical-align: top;
+    padding-right: 10px;
 }
 /* table headers */
 #content th {
@@ -163,4 +167,19 @@ h3:hover .copyLinkIcon {
     background-color: rgba(0,0,0,0.05);
     padding: 3px;
     border-radius: 3px;
+}
+/* blockquotes */
+#content blockquote {
+    background-color: rgba(255, 191, 0, 0.2);
+    padding: 10px;
+    border-left: 3px solid #FFBF00;
+}
+#content blockquote p {
+    margin-bottom: 0;
+}
+/* details */
+#content details {
+    background-color: rgba(48, 179, 227, 0.2);
+    padding: 10px;
+    border-left: 3px solid #30B3E3;
 }

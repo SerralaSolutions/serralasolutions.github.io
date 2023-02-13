@@ -25,7 +25,7 @@ Be aware here that the Expiration date is for the first installment. For the Amo
 
 ## REST API
 A new record for Partial Payment can be created through REST API as following:
-> Request
+Request
 ```json
 {
   "PaymentReference": "LI-748925",
@@ -40,4 +40,3 @@ A new record for Partial Payment can be created through REST API as following:
 ```
 
 Be aware that all communication for this record is handled through the Communication Plan as defined in the Partial Payment Plan. This means no Communication or Communication plan should be used in the call.
-
