@@ -1,24 +1,21 @@
 # Glossary & Statuses
 
-## Glossary
+## Record
+A single record (e.g. created through REST API) that is a single bill or mandate that can be paid/fulfilled by a customer.
 
-### Record
-A single record (e.g. created through REST API) that is a single Bill or Mandate that can be paid/fulfilled by a customer.
-
-### Bill
+## Bill
 A record that is an invoice to be paid by a customer. This can be a deductible for your insurance or an invoice for a delivered good or service.
 
-### Mandate
+## Mandate
 A mandate is a special type of bill in which the recipient pays a small fee or first installment for a service he or she will receive. In doing so, he/she gives the sender a mandate to direct debit a payment from that account for a set or variable amount during a set period.
 
-### AE Template
-A template that defines various properties for a record (e.g. the payment methods, transaction page customization, default language, etc.). AETemplates are created and edited within the application (Templates > AE Templates). A record is always linked to a single AE Template.
+## AE Template
+A template that defines various properties for a record (e.g. the payment methods, transaction page customization, default language, etc.). AETemplates are created and edited within the application (**Templates** > **AE Templates**). A record is always linked to a single AE Template.
 
 ## Statuses
-
 Records and mailings can have various statuses. Below an overview of the different statuses
 
-## Bill Status
+#### Bill Status
 
 | Status        | Explanation          |
 |:-------------|:------------------|
@@ -31,7 +28,7 @@ Records and mailings can have various statuses. Below an overview of the differe
 | **Done**           |  Customer made payment, but confirmation of payment has not arrived yet. (Only applicable for certain payment methods)|
 | **All**           | Technical status, should never happen |
 
-## Mandate Status
+#### Mandate Status
 
 | Status        | Explanation          |
 |:-------------|:------------------|
@@ -41,7 +38,7 @@ Records and mailings can have various statuses. Below an overview of the differe
 | **Revoked**           |  Customer has revoked mandate after payment. No longer valid.|
 | **Withdrawn**           |  Mandate withdrawn. Customer can't pay the mandate any more. |
 
-## Communication Status
+#### Communication Status
 
 | Status        | Explanation          |
 |:-------------|:------------------|
@@ -51,7 +48,7 @@ Records and mailings can have various statuses. Below an overview of the differe
 | **Sent**           | Mailing succesfully sent |
 | **Cancelled**           |  Mailing cancelled |
 
-## Bill Communication PaymentStatus
+#### Bill Communication PaymentStatus
 
 | Status        | Explanation          |
 |:-------------|:------------------|
@@ -61,7 +58,7 @@ Records and mailings can have various statuses. Below an overview of the differe
 | **Countdown**           | Only send to bills that are in Countdown status |
 | **Pending**           | Only send to bills in Pending status  |
 
-## Mandate Communication PaymentStatus
+#### Mandate Communication PaymentStatus
 
 | Status        | Explanation          |
 |:-------------|:------------------|
@@ -69,7 +66,7 @@ Records and mailings can have various statuses. Below an overview of the differe
 | **Mandated** |  Only send to paid mandates |
 | **ToMandate**       |   Only send to mandates that still need to be paid  |
 
-## Bill & Mandate Communication Message Status
+#### Bill & Mandate Communication Message Status
 
 | Status        | Explanation          |
 |:-------------|:------------------|

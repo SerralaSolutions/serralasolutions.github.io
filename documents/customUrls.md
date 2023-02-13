@@ -1,18 +1,20 @@
-# Using your own URL 
+# Setting up custom URL's for the transaction page
 
-## Setting up Custom URL's for the transaction page
-
-It is possible to set up a Custom URL for our transaction page. So you could have `https://pay.yourcompany.com/[ATID]` instead of `https://transaction.accepteasy.com/[ATID]`
+It is possible to set up a custom URL for our transaction page. So you could have `https://pay.yourcompany.com/[ATID]` instead of `https://transaction.accepteasy.com/[ATID]`
 
 Please contact our Operations department to set this up.
-It will involve setting 2 DNS records (1 TXT and 1 CNAME) and signing a Certificate Signing Request (CSR) to set up SSL.
+It will involve setting 2 DNS records (1 TXT and 1 CNAME).
 
-It is also possible to customize the ShortURL for use in Text messages.
+It is also possible to customize the ShortURL for use in text (sms) messages.
 
-## Using the Custom URL in the REST API
+## Using the custom URL in the REST API
+Once set up and linked to the AETemplate the calls to our REST API will be the same as described in [creating a bill](?document=billSync).
+Be sure to use the `AETemplateID` to which the custom URL is linked. The respone will now contain the Custom URL (see example). In all communication sent by us we will also use the custom URL.
 
-> Response
+<details>
+<summary>Example response body</summary>
 
+An example response body for any call that returns a bill object which was created using an AETemplate with a custom URL.
 ```json
 {
   "ATID": "120b6125-fdfa-4124-a08c-dbf63f38e162",
@@ -38,6 +40,4 @@ It is also possible to customize the ShortURL for use in Text messages.
   }
 }
 ```
-
-Once set up and linked to the AETemplate the calls to our REST API will be the same as described in [Creating a Bill](?document=billSync). 
-Be sure to use the `AETemplateID` to which the custom URL is linked. The respone will now contain the Custom URL (see example). In all communication sent by us we will also use the custom URL.
+</details>

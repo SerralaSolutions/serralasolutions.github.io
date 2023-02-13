@@ -1,13 +1,14 @@
-# Redirecting to payment provider
-
-## Redirect straight to payment provider
-
+# Redirect straight to payment provider
 In some cases, it might be useful to have a user skip our transaction page and go straight to the payment provider. This can be achieved by passing a couple of arguments to the url of our landing page.
+
 ### Bills
-Here is an example of such a redirect URL:
-```url
+<details>
+<summary>Example request url</summary>
+
+```
 https://transaction.acceptemail.com/Landing?id=7f5f945f-1965-4acc-b4cf-8a36510c0ec6&detail=true&paymentMethod=c7a8c460-e5e1-404e-a8c4-7fe5b27b48f2&subPaymentMethod=INGBNL2A&redirect=true
 ```
+
 `&redirect=true` tells the page to redirect the user to the payment provider.
 
 `&paymentMethod=c7a8c460-e5e1-404e-a8c4-7fe5b27b48f2` tells the page which payment provider.
@@ -17,26 +18,34 @@ https://transaction.acceptemail.com/Landing?id=7f5f945f-1965-4acc-b4cf-8a36510c0
 The id's of the paymentmethod and subpaymentmethod can be found through the [PaymentMethods](https://api.acceptemail.com/swagger/ui/index#!/Bill/Bill_GetPaymentMethods) API call. See below for an example.
 
 If an amountscheme (open or list) is used for the transaction, this can be passed by adding the amount in `&amount=1500` where the amount is noted in cents.
+</details>
 
 ### Mandates
 
-Redirecting for mandates works in the same manner as bills. For the fields a user can fill in the mandate page, a number of arguments for the url are possible:
+Redirecting for mandates works in the same manner as bills. For the fields a user can fill in the mandate page, a number of arguments for the url are possible.
+<details>
+<summary>Example request url parameters</summary>
 
-`&SequenceType=Oneff/Recurring` (Identifies the underlying transaction sequence.)
+`&SequenceType=Oneff/Recurring` (Identifies the underlying transaction sequence).
 
-`&CollectionAmount=` Amount in cents (Fixed amount to be collected from the debtor’s account.)
+`&CollectionAmount=` Amount in cents (Fixed amount to be collected from the debtor’s account).
 
-`&MaximumAmount=` Amount in cents (Maximum amount that can be collected from the debtor’s account.)
+`&MaximumAmount=` Amount in cents (Maximum amount that can be collected from the debtor’s account).
 
-`&AmountType=` Open/Fixed/Maximum (The type of the amount to be collected.)
+`&AmountType=` Open/Fixed/Maximum (The type of the amount to be collected).
 
-`&ToDate=` DateTime (The date until which the mandate is valid. Only for recurring.)
-
+`&ToDate=` DateTime (The date until which the mandate is valid. Only for recurring).
+</details>
 
 ## Getting the payment methods for a bill
+To get a list of all possible paymentmethods for a bill you can do the following call.
+##### Method: `GET`
+##### Endpoint: `/v2/Bill/[ATID]/PaymentMethods`
+##### Response body:
+<details>
+<summary>Example response body</summary>
 
-> GET Paymentmethods Response
-
+This example has two paymentmethods, iDeal and PayPal. For the iDeal paymethod, it also lists SubPaymentMethods, which are usually shown as a dropdown-selection on the landingpage.
 ```json
 [
     {
@@ -101,11 +110,4 @@ Redirecting for mandates works in the same manner as bills. For the fields a use
     }
 ]
 ```
-
-To get a list of all possible paymentmethods for a bill you can do the following call:
-
-`https://api.acceptemail.com/v2/Bill/[ATID]/PaymentMethods`
-
-Which will return something like the following:
-
-This example has two paymentmethods, iDeal and PayPal. For the iDeal paymethod, it also lists SubPaymentMethods, which are usually shown as a dropdown-selection on the landingpage.
+</details>

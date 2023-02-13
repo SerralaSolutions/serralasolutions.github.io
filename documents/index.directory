@@ -20,6 +20,6 @@ search:Search
 redirecting:Redirecting to payment provider
 redirectingBack:Redirecting after payment
 customUrls:Using your own URL
-versionMigration:Version migration
+versionMigration:Migrating to v2
 glossary:Glossary & Statuses
 errors:Errors
