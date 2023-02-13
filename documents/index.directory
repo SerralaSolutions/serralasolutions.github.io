@@ -5,8 +5,8 @@
 # (And order does matter)
 authentication:Authentication
 billSync:Creating a bill
-billAsync:Asynchronous creation
-billBulk:Bulk creation
+billAsync:Asynchronous bill creation
+billBulk:Bulk bill creation
 billPatch:Updating a bill
 mandate:Creating a mandate
 sendingMessages:Sending a bill

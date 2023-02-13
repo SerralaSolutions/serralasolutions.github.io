@@ -1,11 +1,23 @@
 # Receiving Webhooks
 Webhooks can be used to get realtime feedback on the status of Serrala RTP transactions.
 
-
-
 ## Setting up and requirements
-> Record created
+The endpoint for these webhooks can be set in the application under **Account** > **Settings**.
+The checkboxes select which webhooks will be sent.
 
+
+<img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='documents/images/webhookSettings.png'/>
+
+The endpoint needs to be HTTPS and publicly accessible.
+
+Basic authentication can be added (not mandatory) through adding the username and password in the URL (see screenshot above).
+
+Upon receiving a webhook, for instance, for payment, you can use `GET /v2/Bill/[ATID]`, to fetch additional information such as the account holder name, or account number for the account that completed the payment.
+
+<details>
+<summary>Example request body: record created</summary>
+
+Sent after posting a new bill through REST API. Only sent for bills (both sync and async).
 ```json
 {
   "ATID": "120b6125-fdfa-4124-a08c-dbf63f38e162",
@@ -15,10 +27,11 @@ Webhooks can be used to get realtime feedback on the status of Serrala RTP trans
   "STATUS": "CreationSucceeded"
 }
 ```
-> <i>Sent after posting a new Bill through REST API. Only sent for bills (both sync and async) </i>
+</details>
+<details>
+<summary>Example request body: creation error</summary>
 
-> Creation error
-
+Sent after posting a new bill that could not be created through REST API.
 ```json
 {
   "ATID": "120b6125-fdfa-4124-a08c-dbf63f38e162",
@@ -30,11 +43,11 @@ Webhooks can be used to get realtime feedback on the status of Serrala RTP trans
   "STATUS": "CreationFailed"
 }
 ```
-> <i>Sent after posting a new Bill that could not be created through REST API.</i>
+</details>
+<details>
+<summary>Example request body: payment made</summary>
 
-
-> Payment made
-
+Sent after a customer has finished payment on a bill or mandate.
 ```json
 {
   "ATID": "120b6125-fdfa-4124-a08c-dbf63f38e162",
@@ -44,9 +57,11 @@ Webhooks can be used to get realtime feedback on the status of Serrala RTP trans
   "STATUS": "Paid"
 }
 ```
-> <i>Sent after a customer has finished payment on a Bill or Mandate</i>
+</details>
+<details>
+<summary>Example request body: email bounced</summary>
 
-
+Sent after an email or sms has bounced (both hard and soft bounce).
 ```json
 {
   "ATID": "120b6125-fdfa-4124-a08c-dbf63f38e162",
@@ -56,11 +71,11 @@ Webhooks can be used to get realtime feedback on the status of Serrala RTP trans
   "STATUS": "Bounced"
 }
 ```
+</details>
+<details>
+<summary>Example request body: bulk bills processing completed</summary>
 
-> <i>Sent after an email or sms has bounced (both hard and soft bounce)</i>
-
-> Bulk bills processing completed
-
+Sends a list of records created for a bulk POST.
 ```json
 {
   "Bills": [
@@ -83,20 +98,7 @@ Webhooks can be used to get realtime feedback on the status of Serrala RTP trans
   "STATUS": "ProcessingCompleted"
 }
 ```
-
-> <i>Sends a list of records created for a Bulk POST</i>
-
-The endpoint for these webhooks can be set in the application under Account > Settings.
-The checkboxes select which webhooks will be sent.
-
-
-<img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='documents/images/webhookSettings.png'/>
-
-The endpoint needs to be HTTPS and publicly accessible.
-
-Basic authentication can be added (not mandatory) through adding the username and password in the URL (see screenshot above).
-
-Upon receiving a webhook, for instance, for payment, you can use `GET /v2/Bill/[ATID]`, to fetch additional information such as the account holder name, or account number for the account that completed the payment.
+</details>
 
 ### Whitelisting
 

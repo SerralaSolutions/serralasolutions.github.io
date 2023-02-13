@@ -1,11 +1,15 @@
+# Getting events for a record
+In the following release, it will be possible to get events for a record through the REST API with the `GET /v2/Bill` or `GET /v2/Mandate` call.
 
-# Events
+For a number of different events for a record, data will be stored and can be retrieved through the REST API. Each event will return the type and have a date/timestamp as well as the status of the record at the moment of the event.
+For events directly related to the recipient, you will see the useragent and the IP-address (the last octet of the IP will always be 0, for privacy reasons).
 
-## Getting events for a record
+Below is a list of the different events and examples of what the response for it will be.
 
+<details>
+<summary>Example request body: views</summary>
 
-> Views
-
+When an email is sent to a user and the user opens the email, this will be registered as a view.
 ```json
 {
 	"Type": "View",
@@ -15,11 +19,11 @@
 	"Status": "Open"
 }
 ```
-> <i>When an email is sent to a user and the user opens the email, this will be registered as a view.</i>
+</details>
+<details>
+<summary>Example request body: clicks</summary>
 
-
-> Clicks
-
+When a user visits the transaction page (through clicking the link in the email or sms or other medium) it will be registered as a click.
 ```json
 {
 	"Type": "Click",
@@ -29,10 +33,11 @@
 	"Status": "Open"
 }
 ```
-> <i>When a user visits the transaction page (through clicking the link in the email or sms or other medium) it will be registered as a click.</i>
+</details>
+<details>
+<summary>Example request body: attempt</summary>
 
-> Attempt
-
+When a user clicks the 'Pay Now' button on the transaction page (after selecting the payment method) it will be registered as an attempt.
 ```json
 {
 	"Type": "Attempt",
@@ -45,10 +50,11 @@
 	"Status": "Open"
 }
 ```
-> <i>When a user clicks the 'Pay Now' button on the transaction page (after selecting the payment method) it will be registered as an attempt.</i>
+</details>
+<details>
+<summary>Example request body: payment</summary>
 
-> Payment
-
+When a transaction is succesfully finished, it will be registered as a payment.
 ```json
 {
 	"Type": "Payment",
@@ -59,11 +65,4 @@
 	"Status": "Paid"
 }
 ```
-> <i>When a transaction is succesfully finished, it will be registered as a payment.</i>
-
-In the following release, it will be possible to get events for a record through the REST API with the `GET` Bill or `GET` Mandate call.
-
-For a number of different events for a record, data will be stored and can be retrieved through the REST API. Each event will return the type and have a date/timestamp as well as the status of the record at the moment of the event.
-For events directly related to the recipient, you will see the useragent and the IP-address (the last octet of the IP will always be 0, for privacy reasons).
-
-To the right is a list of the different events and examples of what the response for it will be.
+</details>

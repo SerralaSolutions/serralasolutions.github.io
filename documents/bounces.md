@@ -5,13 +5,26 @@ You can receive a webhook when a message bounces. See webhooks for more informat
 ## Fetching bounces
 To get an overview of the bounces you can do a `GET` call and specify the timeframe in which you want the overview of the bounces.
 
+##### Method: `GET`
+##### Endpoint: `/v2/Search/Bounces`
+##### Query parameters:
+| Parameter          | Type                                      | Description                                                                |
+|:-------------------|:------------------------------------------|:---------------------------------------------------------------------------|
+| **Type** <br/> `Required` | String <br/> `Bills` / `Mandates`         | Get the bounces of bills or mandates                                       |
+| **bounceDateFrom** | ISO Date format <br/> `yyyy-MM-dd`        | Start date of the timeframe in which you want the overview of the bounces. |
+| **bounceDateTo**   | ISO Date format <br/> `yyyy-MM-dd`        | End date of the timeframe in which you want the overview of the bounces.   |
 
-### HTTP Request
-`GET https://api.acceptemail.com/v2/Search/Bounces?bounceDateFrom=2020-07-01&type=Bills`
+##### Request url:
+<details>
+<summary>Example request url</summary>
 
-### Response
+`https://api.acceptemail.com/v2/Search/Bounces?bounceDateFrom=2020-07-01&type=Bills`
+</details>
 
-> Response 
+##### Response body:
+As you can see, the response is comprised of the search results in the Bills array, and some SearchMetaData. If the number of results exceeds the "count", and several pages of results exist, a query for the next page will be included in the SearchMetadata.
+<details>
+<summary>Example response body</summary>
 
 ```json
 {
@@ -55,9 +68,6 @@ To get an overview of the bounces you can do a `GET` call and specify the timefr
   }
 }
 ```
+</details>
 
-As you can see, the response is comprised of the search results in the Bills array, and some SearchMetaData. If the number of results exceeds the "count", and several pages of results exist, a query for the next page will be included in the SearchMetadata.
-
-<aside class="notice">
-Be aware on the timing of the filters. They are based on when a bounce is received on our systems, which could be up to 72 hours after when the email has been sent.
-</aside>
+> Be aware on the timing of the filters. They are based on when a bounce is received on our systems, which could be up to 72 hours after when the email has been sent.

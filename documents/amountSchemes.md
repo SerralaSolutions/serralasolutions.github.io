@@ -1,6 +1,6 @@
 # Amount Schemes
 
-In some cases, for a bill, you might want to give the customer a choice of which amount they will be paying. We support two options for this. List amounts give the user the option to select the amount from a dropdown of predetermined options. Open amounts give the user the option to enter the amount themselves, with optional lower and upper bounds.
+In some cases, for a bill, you might want to give the customer a choice of which amount they will be paying. We support three options for this. List amounts give the user the option to select the amount from a dropdown of predetermined options. Open amounts give the user the option to enter the amount themselves, with optional lower and upper bounds. Multiselect gives the user the option to select which invoices they would like to pay.
 
 ## List amounts
 
