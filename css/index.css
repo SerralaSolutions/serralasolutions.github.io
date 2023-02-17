@@ -13,6 +13,9 @@ body {
 .nav-link:hover {
     background-color: #ED1C60;
 }
+.no-hover:hover {
+    background-color: unset !important;
+}
 
 .sidebarMargin {
     margin-left: 280px;
@@ -65,6 +68,10 @@ body {
 }
 #documentIndex li {
     max-width: 235px;
+}
+#documentIndex lh {
+    padding-left: 8px;
+    color: lightgray;
 }
 #documentIndex li a {
     overflow: hidden;

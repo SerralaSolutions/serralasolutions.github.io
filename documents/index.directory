@@ -1,24 +1,32 @@
 # Which files to show in the index
 # Lines starting with # are comments
+# Lines starting with _ are dividers
 # Format:
 # <Filename>.md : <name shown in index>
 # (And order does matter)
 authentication:Authentication
+_Creation
 billSync:Creating a bill
 billAsync:Asynchronous bill creation
 billBulk:Bulk bill creation
-billPatch:Updating a bill
 mandate:Creating a mandate
+_Updating
+billPatch:Updating a bill
+_Sending messages
 sendingMessages:Sending a bill
-paymentStatus:Payment status
 bounces:Bounces
+_Payment statuses
+paymentStatus:Payment status
 webhooks:Receiving Webhooks
+search:Search
 events:Events
+_Payment options
 amountSchemes:Amount Schemes
 partialPay:Partial Payments
-search:Search
+_Redirections
 redirecting:Redirecting to payment provider
 redirectingBack:Redirecting after payment
+_Others
 customUrls:Using your own URL
 versionMigration:Migrating to v2
 glossary:Glossary & Statuses

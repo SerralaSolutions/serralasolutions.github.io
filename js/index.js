@@ -1,7 +1,16 @@
 //Fill index on load
 $.get(`/documents/index.directory`, function (data) {
     for (let line of data.split("\n")) {
+        //Skip empty lines and comments
         if (line === "" || line.startsWith("#")) continue;
+        //Index dividers
+        if (line.startsWith("_")) {
+            $("#documentIndex").append(`
+                <lh class="nav-link no-hover">${line.substring(1, line.length)}</lh>
+            `);
+            continue;
+        }
+        //Split line into parts
         let keyvalue = line.split(":");
         $("#documentIndex").append(`
             <li>
@@ -13,6 +22,9 @@ $.get(`/documents/index.directory`, function (data) {
     }
     //Add click event to items in the index
     $("#documentIndex").children().each(function() {
+        //Skip dividers
+        if ($(this).is("lh")) return;
+        //Add click event
         $(this).on("click", function () {
             //On click, remove all highlighting, highlight new page and retrieve the document to show
             $("#documentIndex").children().each(function() {
