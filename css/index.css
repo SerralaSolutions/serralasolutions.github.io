@@ -70,7 +70,7 @@ body {
     max-width: 235px;
 }
 #documentIndex lh {
-    padding-left: 8px;
+    padding-left: 2px;
     color: lightgray;
 }
 #documentIndex li a {

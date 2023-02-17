@@ -6,7 +6,7 @@ $.get(`/documents/index.directory`, function (data) {
         //Index dividers
         if (line.startsWith("_")) {
             $("#documentIndex").append(`
-                <lh class="nav-link no-hover">${line.substring(1, line.length)}</lh>
+                <lh class="nav-link no-hover">&#183; ${line.substring(1, line.length)}</lh>
             `);
             continue;
         }
