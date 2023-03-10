@@ -12,10 +12,10 @@ At the REST API Keys Settings, enter a username, let the app generate the keys a
 
 ## Constructing the header
 
-Using your username and password, construct the basic authorization header. 
+Using your api name and primary or secondary api key, construct the basic authorization header. 
 
 The construction is as follows:  
-`Authorization: Basic <base64 encoded username:password>`
+`Authorization: Basic <base64 encoded name:key>`
 
 This should create the following header:  
 `Authorization: Basic YW5HjA.........`
