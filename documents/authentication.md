@@ -10,6 +10,10 @@ At the REST API Keys Settings, enter a key name, let the app generate the keys a
 
 <img style='width:50%;display:block;border:1px solid #eeebee;margin-left:auto;margin-right:auto;' src='documents/images/authentication.png'/>
 
+## URL
+All of our REST API calls are made to the following URL: `https://api.acceptemail.com/v2/<endpoint...>`
+
+
 ## Constructing the header
 
 Using your api key name and primary or secondary api key, construct the basic authorization header. 
