@@ -6,7 +6,7 @@ In some cases, it might be useful to have a user skip our transaction page and g
 <summary>Example request url</summary>
 
 ```
-https://transaction.acceptemail.com/Landing?id=7f5f945f-1965-4acc-b4cf-8a36510c0ec6&detail=true&paymentMethod=c7a8c460-e5e1-404e-a8c4-7fe5b27b48f2&subPaymentMethod=INGBNL2A&redirect=true
+https://transaction.accepteasy.com/7f5f945f-1965-4acc-b4cf-8a36510c0ec6?paymentMethod=6fda8158-630c-4d0d-b0f5-316b83168385&subPaymentMethod=INGBNL2A&redirect=true
 ```
 
 `&redirect=true` tells the page to redirect the user to the payment provider.
