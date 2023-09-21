@@ -1,5 +1,5 @@
 # Redirecting after payment
-Once a user has made a payment at their paymentprovider, they'll be redirected to the AcceptEasy landing page. In some cases you might want to redirect the user to another page or app.
+Once a user has made a payment at their paymentprovider, they'll be redirected back to the Serrala transaction (or 'landing') page. In some cases you might want to redirect the user to another page or app.
 
 Go to the AE Template and make sure to add the amount of seconds before the result banner auto redirect should take place (enter 0 for immediate redirect).
 

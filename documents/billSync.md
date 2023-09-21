@@ -22,10 +22,10 @@ To create a single payment link for an invoice, only minimal information needs t
   "PaymentReference": "LI-748925",
   "Description": "Payment for insurance deductible",
   "Amount": 1295,
-  "ExpiryDate": "2023-04-02T09:00:00Z",
+  "ExpiryDate": "2024-09-21T09:00:00Z"
 }
 ```
-This will create a bill for a payment of &euro; 12,95 that expires on April 2nd 2023.
+This will create a bill for a payment of &euro; 12,95 that expires on September 21st 2024.
 </details>
 
 ##### Response body:
@@ -54,7 +54,7 @@ The response will contain the fields originally supplied in the POST (see above)
   "PaymentReference": "LI-748925",
   "Amount": 12.95,
   "Description": "Payment for insurance deductible",
-  "ExpiryDate": "2023-04-02T09:00:00Z",
+  "ExpiryDate": "2024-09-21T09:00:00Z",
   "Status": "Open",
   "Address": {
     "Email": "",
