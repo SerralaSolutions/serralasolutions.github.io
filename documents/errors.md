@@ -1,5 +1,5 @@
 # Errors
-The Serrala RTP API uses the following error codes:
+The Serrala Bill Pay API uses the following error codes:
 
 Code | Meaning
 ---------- | -------

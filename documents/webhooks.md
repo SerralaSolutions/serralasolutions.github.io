@@ -1,5 +1,5 @@
 # Receiving Webhooks
-Webhooks can be used to get realtime feedback on the status of Serrala RTP transactions.
+Webhooks can be used to get realtime feedback on the status of Serrala Bill Pay transactions.
 
 ## Setting up and requirements
 The endpoint for these webhooks can be set in the application under **Account** > **Settings**.
