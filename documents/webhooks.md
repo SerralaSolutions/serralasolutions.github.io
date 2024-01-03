@@ -108,7 +108,8 @@ When creating a Bill (e.g. via [`POST /v2/Bill`](?document=billSync&header=synch
 <details>
 <summary>Example Bill contents to route paid webhooks per invoice</summary>
 
-This `POST /v2/Bill` example body would send paid notifications to `https://exampledomain.test/route/12345`
+This `POST /v2/Bill` example body would send paid notifications to `https://exampledomain.test/route/12345`.
+
 Setting `PaidURL` overrides the above configured `Notification URL` for Paid notifications.
 
 ```json
