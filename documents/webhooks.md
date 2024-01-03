@@ -100,6 +100,30 @@ Sends a list of records created for a bulk POST.
 ```
 </details>
 
+
+### Routing Paid webhook events separately per bill
+
+When creating a Bill (e.g. via [`POST /v2/Bill`](?document=billSync&header=synchronous-post) call with an example similar to the following)
+
+<details>
+<summary>Example `POST /v2/Bill` contents to route paid webhooks per invoice</summary>
+
+This will send paid notifications to `https://exampledomain.test/route/12345`
+this overrides the above configured `Notification URL` for Paid notifications
+
+```json
+{
+  "PaymentReference": "LI-748925",
+  "Description": "Payment for insurance deductible",
+  "Amount": 1295,
+  "ExpiryDate": "2024-09-21T09:00:00Z",
+  "NotificationURLs": {
+    "PaidURL": "https://exampledomain.test/route/12345"
+  }
+}
+```
+</details>
+
 ### Whitelisting
 
 While we don't advice whitelisting the incoming connections for the webhook, we understand the necessity. The originating IP addresses for the webhooks are:
