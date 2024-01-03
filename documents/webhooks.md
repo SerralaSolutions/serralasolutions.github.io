@@ -106,10 +106,10 @@ Sends a list of records created for a bulk POST.
 When creating a Bill (e.g. via [`POST /v2/Bill`](?document=billSync&header=synchronous-post) call with an example similar to the following)
 
 <details>
-<summary>Example `POST /v2/Bill` contents to route paid webhooks per invoice</summary>
+<summary>Example Bill contents to route paid webhooks per invoice</summary>
 
-This will send paid notifications to `https://exampledomain.test/route/12345`
-this overrides the above configured `Notification URL` for Paid notifications
+This `POST /v2/Bill` example body would send paid notifications to `https://exampledomain.test/route/12345`
+Setting `PaidURL` overrides the above configured `Notification URL` for Paid notifications.
 
 ```json
 {
