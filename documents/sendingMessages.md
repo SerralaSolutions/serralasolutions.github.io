@@ -200,7 +200,7 @@ The default Communication Plan will take priority over the Default Email Templat
 When we send emails on behalf of you, we will use an emailaddress with your domain. In order to do this, we will supply you with 2 DNS records (1 TXT and 1 CNAME) which will need to be added to your DNS registry.
 If you want to send from invoicing@yourcompany.com the DNS records will look something like this:
 
-`scph0433._domainkey.yourcompany.com` TXT `v=DKIM1; k=rsa; h=sha256; p=MIGfMA0...`
+`scph****._domainkey.yourcompany.com` TXT `v=DKIM1; k=rsa; h=sha256; p=MIGfMA0...`
 
 `ae.yourcompany.com` CNAME `eu.sparkpostmail.com`
 
