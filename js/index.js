@@ -153,7 +153,7 @@ function search(query) {
         loadingCache = true;
         $.get(`/documents/index.directory`, function (data) {
             for (let line of data.split("\n")) {
-                if (line === "" || line.startsWith("#")) continue;
+                if (line === "" || line.startsWith("#") || line.startsWith("_")) continue;
                 let keyvalue = line.split(":");
                 //TODO: Consider not spamming the server with requests and combining them into one document using a workflow or something
                 $.ajax({
