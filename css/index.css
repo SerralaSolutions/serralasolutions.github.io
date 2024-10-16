@@ -42,24 +42,19 @@ body {
 }
 
 /* Scrollbar modications */
-* {
-    scrollbar-width: thin;
-    scrollbar-height: thin;
-    scrollbar-color: #c5c5c5 #f6f6f6;
-}
-
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
-*::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0);
+::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0);
 }
-
-*::-webkit-scrollbar-thumb {
-    background-color: #c5c5c5;
-    border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0);
+::-webkit-scrollbar-track {
+    background-color: unset;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(99, 99, 99);
+    border-radius: 10px;
 }
 
 #documentIndex {
