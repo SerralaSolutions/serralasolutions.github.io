@@ -1,4 +1,6 @@
-//Fill index on load
+/*
+Fill index on load
+ */
 $.get(`/documents/index.directory`, function (data) {
     for (let line of data.split("\n")) {
         //Skip empty lines and comments
@@ -52,7 +54,9 @@ $.get(`/documents/index.directory`, function (data) {
     }
 });
 
-//Retrieve a document on navigation (or first load)
+/*
+Retrieve a document on navigation (or first load)
+ */
 function getDocument(name, afterListElement) {
     if (name === undefined) return;
     //Load the document
@@ -77,27 +81,28 @@ function getDocument(name, afterListElement) {
         });
         //Scroll to the top of the document
         $(window).scrollTop(0);
-        //Remove headers with nav-sublink from the index
-        $("#documentIndex").children().each(function () {
-            if ($(this).children().first().hasClass("nav-sublink")) {
-                $(this).remove();
-            }
-        });
-        //Append headers to the index
-        $($("#content").children().get().reverse()).each(function () {
-            if ($(this).is("h2") || $(this).is("h3")) {
-                $(afterListElement).after(`
-                    <li>
-                        <a href="javascript:void(0);" id="h_${$(this).attr("id")}" class="nav-link nav-sublink text-white">
-                            - ${$(this).text()}
-                        </a>
-                    </li>
-                `);
-                $(`#h_${$(this).attr("id")}`).on("click", function () {
-                    $(window).scrollTop($(`#${$(this).attr("id").substring(2)}`).offset().top);
-                });
-            }
-        });
+        //Disabled to reduce clutter in the navigation column
+        // //Remove headers with nav-sublink from the index
+        // $("#documentIndex").children().each(function () {
+        //     if ($(this).children().first().hasClass("nav-sublink")) {
+        //         $(this).remove();
+        //     }
+        // });
+        // //Append headers to the index
+        // $($("#content").children().get().reverse()).each(function () {
+        //     if ($(this).is("h2") || $(this).is("h3")) {
+        //         $(afterListElement).after(`
+        //             <li>
+        //                 <a href="javascript:void(0);" id="h_${$(this).attr("id")}" class="nav-link nav-sublink text-white">
+        //                     - ${$(this).text()}
+        //                 </a>
+        //             </li>
+        //         `);
+        //         $(`#h_${$(this).attr("id")}`).on("click", function () {
+        //             $(window).scrollTop($(`#${$(this).attr("id").substring(2)}`).offset().top);
+        //         });
+        //     }
+        // });
         //Scroll to header if specified in url parameters
         let url = new URL(window.location.href);
         let header = url.searchParams.get("header");
@@ -109,7 +114,9 @@ function getDocument(name, afterListElement) {
     });
 }
 
-//On load, retrieve the document specified in the url or the introduction otherwise
+/*
+On load, retrieve the document specified in the url or the introduction otherwise
+ */
 $(document).ready(function () {
     let url = new URL(window.location.href);
     let name = url.searchParams.get("document");
@@ -119,7 +126,9 @@ $(document).ready(function () {
     getDocument(name);
 });
 
-//Catch back and forward navigation
+/*
+Catch back and forward navigation
+ */
 window.onpopstate = async (event) => {
     let url = new URL(window.location.href);
     let name = url.searchParams.get("document");
@@ -129,7 +138,9 @@ window.onpopstate = async (event) => {
     getDocument(name);
 }
 
-//Copy link to clipboard when clicking on a header
+/*
+Copy link to clipboard when clicking on a header
+ */
 function copyLink(element) {
     let url = new URL(window.location.href);
     let header = url.searchParams.get("header");
@@ -139,7 +150,9 @@ function copyLink(element) {
     navigator.clipboard.writeText(url.href + "&header=" + $(element).parent().attr("id"));
 }
 
-//Search
+/*
+Search
+ */
 let documentCache = {};
 let loadingCache = false;
 function search(query) {
@@ -155,7 +168,7 @@ function search(query) {
             for (let line of data.split("\n")) {
                 if (line === "" || line.startsWith("#") || line.startsWith("_")) continue;
                 let keyvalue = line.split(":");
-                //TODO: Consider not spamming the server with requests and combining them into one document using a workflow or something
+                //TODO: Consider not trying to load all documents at once to search through them by combining them into one document prematurely using a workflow or something
                 $.ajax({
                     url: `/documents/${keyvalue[0]}.md`,
                     success: function (data) {
@@ -207,6 +220,9 @@ function search(query) {
     }
 }
 
+/*
+Go to a page from the search results
+ */
 function gotoPage(document, header) {
     //On click, remove all highlighting, highlight new page and retrieve the document to show
     $("#documentIndex").children().each(function() {
