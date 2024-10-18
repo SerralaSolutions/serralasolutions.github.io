@@ -5,13 +5,17 @@
 # <Filename>.md : <name shown in index>
 # (And order does matter)
 authentication:Authentication
+domainAlignment:Domain alignment
 _Creation
 billSync:Creating a bill
 billAsync:Asynchronous bill creation
 billBulk:Bulk bill creation
 mandate:Creating a mandate
-_Updating
+_Next steps
 billPatch:Updating a bill
+emailData:Adding data
+emailAttachments:Adding email attachments
+communicationPlans:Communication plans
 _Sending messages
 sendingMessages:Sending a bill
 bounces:Bounces
