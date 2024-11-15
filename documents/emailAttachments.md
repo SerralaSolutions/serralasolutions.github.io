@@ -1,4 +1,6 @@
 # Adding attachments to emails
+> Sending attachments with emails is likely to cause the email to be marked as spam. Please use this feature with caution.
+
 If you want to add an invoice or details for a certain payment to the email you can add a PDF-attachment. See the Attachment object in the code example below.
 
 The Attachment-filename in this call is what the file will be named (including extension) when attaching the file.
