@@ -26,13 +26,13 @@ Redirecting for mandates works in the same manner as bills. For the fields a use
 <details>
 <summary>Example request url parameters</summary>
 
-`&SequenceType=Oneff/Recurring` (Identifies the underlying transaction sequence).
+`&SequenceType=OneOff/Recurring` (Identifies the underlying transaction sequence).
 
 `&CollectionAmount=` Amount in cents (Fixed amount to be collected from the debtor’s account).
 
 `&MaximumAmount=` Amount in cents (Maximum amount that can be collected from the debtor’s account).
 
-`&AmountType=` Open/Fixed/Maximum (The type of the amount to be collected).
+`&AmountType=` `Open`/`Fixed`/`Maximum` (The type of the amount to be collected).
 
 `&ToDate=` DateTime (The date until which the mandate is valid. Only for recurring).
 </details>
@@ -40,7 +40,7 @@ Redirecting for mandates works in the same manner as bills. For the fields a use
 ## Getting the payment methods for a bill
 To get a list of all possible paymentmethods for a bill you can do the following call.
 ##### Method: `GET`
-##### Endpoint: `/v2/Bill/[ATID]/PaymentMethods`
+##### Endpoint: `/v2/Bill/[ATID]/PaymentMethods` OR `/v2/Mandate/[ATID]/PaymentMethods`
 ##### Response body:
 <details>
 <summary>Example response body</summary>

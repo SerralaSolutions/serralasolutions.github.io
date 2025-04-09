@@ -2,8 +2,8 @@
 # Lines starting with # are comments
 # Lines starting with _ are dividers
 # Format:
-# <Filename>.md : <name shown in index>
-# (And order does matter)
+# <Filename_without_md>:<name shown in index>
+# Order does matter
 authentication:Authentication
 domainAlignment:Domain alignment
 _Creation
