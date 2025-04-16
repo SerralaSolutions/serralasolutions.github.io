@@ -34,7 +34,9 @@ Redirecting for mandates works in the same manner as bills. For the fields a use
 
 `&AmountType=` `Open`/`Fixed`/`Maximum` (The type of the amount to be collected).
 
-`&ToDate=` DateTime (The date until which the mandate is valid. Only for recurring).
+`&ToDateType=` `ToDate` (Only in combination using the ExpirationDate parameter).
+
+`&ExpirationDate=`  (The date in ISO DateTime format until which the mandate is valid. Only for recurring).
 </details>
 
 ## Getting the payment methods for a bill
