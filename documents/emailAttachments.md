@@ -7,7 +7,7 @@ The Attachment-filename in this call is what the file will be named (including e
 The binary needs to be a base64-encoded string of the PDF contents.
 
 When a record is created with an attachment, all emails sent out for this record will have the attachment added to it.
-##### Optional for: `POST /v2/Bill` & `POST /v2/Mandate`
+##### Optional for: `POST /v2/Bill`
 ##### Request body:
 
 <details>
