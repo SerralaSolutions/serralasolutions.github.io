@@ -1,7 +1,7 @@
 # Adding data to be used in messages
 When sending bills through email, it can be useful to add some additional information to your calls, so that this data can be used in the email- or text templates. For instance, it's very common to provide a recipient salutation and address lines.
 
-For the RecordData you can define the variables yourself. As long as they don't share the name with an existing variable in the object (you can't add PaymentReference in the RecordData).
+For the RecordData you can define the variables yourself. As long as they don't share the name with an existing variable in the object (you can't add PaymentReference in the RecordData). The limit for RecordData is 500 characters per field. 
 
 ##### Optional for: `POST /v2/Bill` & `POST /v2/Mandate`
 ##### Request body:
