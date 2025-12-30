@@ -2,7 +2,7 @@
 
 If you want to update an existing record you can do so using the `PATCH /v2/Bill/[ATID]` call.
 You can use this to add an Emailaddress or Phonenumber to the record.
-It can also be used to update the status of the record.
+It can also be used to update the status of an open record to cancelled, paid or expired.
 
 ##### Method: `PATCH`
 ##### Endpoint: `/v2/Bill/[ATID]`
